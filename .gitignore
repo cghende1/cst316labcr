@@ -1,4 +1,3 @@
-classes*
-*.class
-*.classpath
-*.project
+/classes/
+.classpath
+.project

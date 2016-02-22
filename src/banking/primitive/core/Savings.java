@@ -2,6 +2,7 @@ package banking.primitive.core;
 
 public class Savings extends Account {
 	private static final long serialVersionUID = 111L;
+	private static final float _DEPOSIT_FEE = 0.50F; // Fee that will be charged on deposit
 	private int numWithdraws = 0;
 
 	public Savings(String name) {
@@ -13,11 +14,12 @@ public class Savings extends Account {
 	}
 
 	/**
-	 * A deposit comes with a fee of 50 cents per deposit
+	 * A deposit comes with a fee per deposit
+	 * (the amount of which is defined by the constant DEPOSIT_FEE)
 	 */
 	public boolean deposit(float amount) {
 		if (getState() != State.CLOSED && amount > 0.0f) {
-			balance = balance + amount - 0.50F;
+			balance = balance + amount - Savings._DEPOSIT_FEE;
 			if (balance >= 0.0f) {
 				setState(State.OPEN);
 			}

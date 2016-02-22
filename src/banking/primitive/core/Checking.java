@@ -22,18 +22,14 @@ public class Checking extends Account {
 	 * @param float is the deposit amount
 	 */
 	public boolean deposit(float amount) {
-	    if (amount < 0.0f) {
-	        return false;
-	    }
-	    float tentativeBalance = balance + amount;
-	    if (getState() == State.CLOSED) {
-	        if (tentativeBalance < 0.0f) {
-	            return false;
-	        }
-	        setState(State.OPEN);
-	    }
-	    balance = tentativeBalance;
-	    return true;
+		if (getState() != State.CLOSED && amount > 0.0f) {
+			balance = balance + amount;
+			if (getState() == State.OVERDRAWN && balance >= 0.0f) {
+				setState(State.OPEN);
+			}
+			return true;
+		}
+		return false;
 	}
 
 	/**

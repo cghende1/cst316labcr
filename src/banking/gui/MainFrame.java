@@ -37,12 +37,12 @@ class MainFrame extends JFrame {
     final static String SAVE_ACCOUNTS = "Save Accounts";
     final static String LIST_ACCOUNTS = "List Accounts";
     final static String ALL_ACCOUNTS = "All Accounts";
-    final static String ACCOUNT_CREATED_SUCCESSFULY = "Account created successfully";
+    final static String ACCOUNT_CREATED_SUCCESSFULLY = "Account created successfully";
     final static String ACCOUNT_NOT_CREATED = "Account not created!";
     final static String ACCOUNTS_SAVED = "Accounts saved";
     final static String ERROR_SAVING_ACCOUNTS = "Error saving accounts";
     final static String DEPOSIT_SUCCESSFUL = "Deposit successful";
-    final static String DEPOSIT_UNSUCCESFUL = "Deposit unsuccessful";
+    final static String DEPOSIT_UNSUCCESSFUL = "Deposit unsuccessful";
     final static String WITHDRAWAL_SUCCESSFUL = "Withdrawal successful";
     final static String WITHDRAWAL_UNSUCCESSFUL= "Withdrawal unsuccessful";
 	AccountServer	myServer;
@@ -166,7 +166,7 @@ class MainFrame extends JFrame {
 			String balance = balanceField.getText();
 
 			if (myServer.newAccount(type, name, Float.parseFloat(balance))) {
-				JOptionPane.showMessageDialog(null, ACCOUNT_CREATED_SUCCESSFULY);
+				JOptionPane.showMessageDialog(null, ACCOUNT_CREATED_SUCCESSFULLY);
 			} else {
 				JOptionPane.showMessageDialog(null, ACCOUNT_NOT_CREATED);
 			}
@@ -194,7 +194,7 @@ class MainFrame extends JFrame {
 			if (acc != null && acc.deposit(Float.parseFloat(balance))) {
 				JOptionPane.showMessageDialog(null, DEPOSIT_SUCCESSFUL);
 			} else {
-				JOptionPane.showMessageDialog(null, DEPOSIT_UNSUCCESFUL);
+				JOptionPane.showMessageDialog(null, DEPOSIT_UNSUCCESSFUL);
 			}
 		}
 	}

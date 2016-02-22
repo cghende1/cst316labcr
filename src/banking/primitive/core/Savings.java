@@ -19,7 +19,7 @@ public class Savings extends Account {
 	 */
 	public boolean deposit(float amount) {
 		if (getState() != State.CLOSED && amount > 0.0f) {
-			balance = balance + amount - Savings.DEPOSIT_FEE;
+			balance = balance + amount - Savings._DEPOSIT_FEE;
 			if (balance >= 0.0f) {
 				setState(State.OPEN);
 			}

@@ -24,7 +24,7 @@ public class Checking extends Account {
 	public boolean deposit(float amount) {
 		if (getState() != State.CLOSED && amount > 0.0f) {
 			balance = balance + amount;
-			if (balance >= 0.0f) {
+			if (getState() == State.OVERDRAWN && balance >= 0.0f) {
 				setState(State.OPEN);
 			}
 			return true;
